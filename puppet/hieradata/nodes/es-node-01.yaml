@@ -1,0 +1,8 @@
+---
+
+classes:
+  - elasticsearch
+
+elasticsearch:
+  manage_repo: true
+  
