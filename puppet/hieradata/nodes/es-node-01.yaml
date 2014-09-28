@@ -2,8 +2,12 @@
 
 classes:
   - elasticsearch
+  - es_instance_wrapper
 
-elasticsearch::manage_repo: true
+elasticsearch::manage_repo:  true
 elasticsearch::repo_version: '1.3'
 elasticsearch::java_install: true
-elasticsearch::status: 'enabled'
+
+elasticsearch::instance:
+  'es-01':
+    'datadir': '/var/lib/es-data-es01'
