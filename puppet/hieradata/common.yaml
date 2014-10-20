@@ -12,6 +12,4 @@ elasticsearch::instance:
     'datadir': '/var/lib/elasticsearch'
     'config':
       'cluster.name': 'esdev'
-      'network.host': '0.0.0.0'
-#      'network.host': '%{::ipaddress_eth1}'
-#      'http.host': '0.0.0.0'
+      'network.host': '%{::ipaddress_eth1}'
