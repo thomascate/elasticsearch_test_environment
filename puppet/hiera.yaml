@@ -7,4 +7,3 @@
 :hierarchy:
   - "nodes/%{::hostname}"
   - common
-  

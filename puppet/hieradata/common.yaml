@@ -1,1 +1,17 @@
 ---
+
+classes:
+  - elasticsearch
+
+elasticsearch::manage_repo:  true
+elasticsearch::repo_version: '1.3'
+elasticsearch::java_install: true
+
+elasticsearch::instance:
+  'test01':
+    'datadir': '/var/lib/elasticsearch'
+    'config':
+      'cluster.name': 'esdev'
+      'network.host': '0.0.0.0'
+#      'network.host': '%{::ipaddress_eth1}'
+#      'http.host': '0.0.0.0'
