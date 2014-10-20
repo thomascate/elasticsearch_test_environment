@@ -199,7 +199,8 @@ class elasticsearch(
   $logging_file          = undef,
   $logging_config        = undef,
   $default_logging_level = $elasticsearch::params::default_logging_level,
-  $repo_stage            = false
+  $repo_stage            = false,
+  $instance              = {},
 ) inherits elasticsearch::params {
 
   anchor {'elasticsearch::begin': }
@@ -319,5 +320,7 @@ class elasticsearch(
     -> Class['elasticsearch::package']
 
   }
+  create_resources('elasticsearch::instance', $instance)
+
 
 }

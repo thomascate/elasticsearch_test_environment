@@ -74,8 +74,8 @@ define elasticsearch::instance(
   $init_defaults  = undef
 ) {
 
-  require elasticsearch
-  require elasticsearch::params
+#  require elasticsearch
+#  require elasticsearch::params
 
   File {
     owner => $elasticsearch::elasticsearch_user,
