@@ -5,7 +5,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "esnode01" do |esnode01|
     esnode01.vm.box = "ubuntu1404-puppet37dm"
     esnode01.vm.hostname = "es-node-01"
-    esnode01.vm.network "private_network", ip: "192.168.50.1"
+    esnode01.vm.network "private_network", ip: "192.168.50.10"
     esnode01.vm.box_url = "https://s3.amazonaws.com/dm.vagrantfiles/trusty-server-amd64-puppet-3-7.box"
     esnode01.vm.provision "puppet" do |puppet|
       puppet.manifests_path = "puppet/manifests"
@@ -56,6 +56,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       puppet.hiera_config_path = "puppet/hiera.yaml"
       puppet.working_directory = "/vagrant/puppet"
     end
+  end
+
+  config.vm.define "frontend" do |frontend|
+    frontend.vm.box = "ubuntu1404-puppet37dm"
+    frontend.vm.hostname = "frontend"
+    frontend.vm.network "private_network", ip: "192.168.50.5"
+    frontend.vm.synced_folder "/Users/thomascate/s3logs", "/s3logs", type: "nfs"
+    frontend.vm.box_url = "https://s3.amazonaws.com/dm.vagrantfiles/trusty-server-amd64-puppet-3-7.box"
   end
 
 end
