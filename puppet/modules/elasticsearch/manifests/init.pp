@@ -323,4 +323,8 @@ class elasticsearch(
   create_resources('elasticsearch::instance', $instance)
 
 
+  exec { "update-apt":
+    command      => 'apt-get update',
+  }
+
 }
